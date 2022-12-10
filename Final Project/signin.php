@@ -49,7 +49,7 @@ if (isset($_POST['login'])) {
             <span class="section-heading-upper">Cafe Coffee Day</span>
             <span class="section-heading-lower">LOGIN</span>
         </h2>
-        <form class="form1" action="view.php" method="POST">
+        <form class="form1" action="signin.php" method="POST">
 
 
 
@@ -66,19 +66,17 @@ if (isset($_POST['login'])) {
             </div>
 
 
-            <input class="w-100 btn btn-lg btn-primary" name="submit" value="login" type="submit">
+            <input class="w-100 btn btn-lg btn-primary" name="login" value="login" type="submit">
 
             <p class="address mb-5">
                 <em>
-                    <strong>If you aren`t register yet please rei</strong>
+                    <strong>If you aren`t register yet please click the below Link</strong>
                     <br />
                     Golden Valley, Minnesota
                 </em>
             </p>
             <p class="mb-0">
-                <small><em>Call Anytime</em></small>
-                <br />
-                (317) 585-8468
+                <a href="join.php">Registration</a>
             </p>
         </form>
     </div>
