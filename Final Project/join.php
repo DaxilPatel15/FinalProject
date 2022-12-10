@@ -1,15 +1,9 @@
 <?php
-
-// Include database file
-include 'database.php';
-
+include "database.php";
 $customerObj = new database();
-
-// Insert Record in customer table
 if (isset($_POST['submit'])) {
-    $customerObj->insertData($_POST);
+$customerObj->insertData($_POST);
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -39,38 +33,38 @@ if (isset($_POST['submit'])) {
             <span class="section-heading-upper">Cafe Coffee Day</span>
             <span class="section-heading-lower">REGISTRATION</span>
         </h2>
-        <form class="form1" action="saveadmin.php" method="POST">
+        <form class="form1" action="join.php"  method="post">
 
 
 
           <div class="form-floating">
             <!-- adding input for FirstName -->
-            <input type="text" class="form-control" id="FirstName" name="FirstName" placeholder="Firstname">
+            <input type="text" class="form-control" id="FirstName" name="FirstName" placeholder="Firstname" required="">
             <label for="FirstName">Firstname</label>
           </div>
           <div class="form-floating">
             <!-- adding input for LastName -->
-            <input type="text" class="form-control" id="LastName" name="LastName" placeholder="Lastname">
+            <input type="text" class="form-control" id="LastName" name="LastName" placeholder="Lastname" required="">
             <label for="LastName">Lastname</label>
           </div>
         <!-- adding input for Email -->
           <div class="form-floating">
-            <input type="text" class="form-control" id="Email" name="Email" placeholder="name@example.com">
+            <input type="text" class="form-control" id="Email" name="Email" placeholder="name@example.com" required="">
             <label for="Email">Email</label>
           </div>
           <div class="form-floating">
               <!-- adding input for Password -->
-              <input type="text" class="form-control" id="Tel" name="Tel"  placeholder="TelePhone Nmber">
-              <label for="Tel">Telephone Number</label>
+              <input type="tel" class="form-control" id="Telephone" name="Telephone"  placeholder="Telephone" required="">
+              <label for="Telephone">Telephone Number</label>
           </div>
           <div class="form-floating">
             <!-- adding input for Password -->
-            <input type="password" class="form-control" id="Passwrd" name="Passwrd"  placeholder="Password">
+            <input type="password" class="form-control" id="Passwrd" name="Passwrd"  placeholder="Password" required="">
             <label for="Passwrd">Password</label>
           </div>
           <div class="form-floating">
             <!-- adding input for Password -->
-            <input type="password" class="form-control" id="Confirmp" name="Confirmp"  placeholder="Password">
+            <input type="password" class="form-control" id="Confirmp" name="Confirmp"  placeholder="Confirm-Password" required="">
             <label for="Confirmp">Confirm Password</label>
           </div>
 
@@ -86,10 +80,7 @@ if (isset($_POST['submit'])) {
         </form>
     </div>
   </section>
-  <section class="page-section cta-1">
 
-
-    </section>
 
 
         <?php require ('./footer.php'); ?>
