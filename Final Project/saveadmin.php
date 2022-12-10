@@ -15,57 +15,17 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
 </head>
-
-
-
-
+<body>
 <?php
+if (isset($_GET['msg1']) == "insert") {
+    echo "<div class='alert alert-success alert-dismissible'>
+         <button type='button' class='close' data-dismiss='alert'>×</button>
+         Your Registration added successfully
+     </div>";
+}
+?>
+<section class = "row success-back-row" style="background-color: #F3F3F3">
 
-require 'database.php';
-$FirstName = $_POST['FirstName'];
-$LastName = $_POST['LastName'];
-$Email = $_POST['Email'];
-$Tel = $_POST['Telephone'];
-$Passwrd = $_POST['Passwrd'];
-$Confirmp = $_POST['Confirmp'];
-$ok = true;
-require 'header.php';
-if(empty($FirstName)){
-  echo'<p>First Name Required</p>';
-  $ok = false;
-}
-if(empty($LastName)){
-  echo'<p>Last Name Required</p>';
-  $ok = false;
-}
-if(empty($Email)){
-  echo'<p>Email Required</p>';
-  $ok = false;
-}
-if(empty($Tel)){
-  echo'<p>PhoneNumber Required</p>';
-  $ok = false;
-}
-if((empty($Passwrd))|| ($Passwrd != $Confirmp)){
-  echo'<p>Incorrect password</p>';
-  $ok = false;
-}
-
-if($ok){
-  $Passwrd = hash('sha512',$Passwrd);
-  $sql = "insert into admins(FirstName,LastName,Email,Telephone,Passwrd) VALUES ( '$FirstName','$LastName','$Email','$Tel','$Passwrd')";
-  $this->con->exec($sql);
-  echo'<section class = "success-row">';
-  echo'<div>';
-  echo'<h3>Admin Saved</h3>';
-  echo'</div>';
-  echo'</section>';
-  $con = null;
-}
-
- ?>
-
- <section class = "row success-back-row" style="background-color: #F3F3F3">
    <div>
      <p>All done, Click the signin button to head towards sign in process</p>
      <a href="signin.php">Sign In</a>
@@ -73,5 +33,5 @@ if($ok){
 
  </section>
 <?php require 'footer.php'; ?>
-
-</html>>
+</body>>
+</html>
