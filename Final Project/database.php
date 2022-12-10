@@ -24,49 +24,48 @@ class database
         }
     }
 
-    // the below is the function to insert data from Home page
-    public function insertData($post)
-    {
-        $FirstName = $this->con->real_escape_string($_POST['FirstName']);
-        $LastName  = $this->con->real_escape_string($_POST['LastName']);
-        $Email  = $this->con->real_escape_string($_POST['Email']);
-        $Tel  = $this->con->real_escape_string($_POST['Telephone']);
+     //the below is the function to insert data from Home page
+     public function insertData($post)
+     {
+         $FirstName = $this->con->real_escape_string($_POST['FirstName']);
+         $LastName = $this->con->real_escape_string($_POST['LastName']);
+         $Email = $this->con->real_escape_string($_POST['Email']);
+         $Telephone = $this->con->real_escape_string($_POST['Telephone']);
+         $Passwrd = hash('sha256', $_POST['Passwrd']);
+         $query = "INSERT INTO admins(FirstName,LastName,Email,Telephone,Passwrd) VALUES ('$FirstName','$LastName','$Email','$Telephone','$Passwrd')";
+         $sql = $this->con->query($query);
+         if ($sql == true) {
+             // to show message on header if successfully data inserted.
+             header("Location:saveadmin.php?msg1=insert");
 
-        $Passwrd = hash('sha256',$_POST['Passwrd']);
-        $Confirmp = $this->con->real_escape_string($_POST['Confirmp']);
-
-        $query = "INSERT INTO admins(FirstName,LastName,Email,Telephone,Passwrd,Confirmp) VALUES ('$FirstName ','$LastName ','$Email ','$Tel','$Passwrd','$Confirmp')";
-        $sql = $this->con->query($query);
-        if ($sql == true) {
-            // to show message on header if successfully data inserted.
-            header("Location:view.php?msg1=insert");
-
-        } else {
-            // error if there is something wrong in the code
-            echo "Cant add your profile";
-            // echo to display the error
-        }
-    }
+         } else {
+             // error if there is something wrong in the code
+             echo "Cant add your profile";
+             // echo to display the error
+         }
+     }
 
     public function loginCheck()
     {
         $Email = $this->con->real_escape_string($_POST['Email']);
-        $Passwrd = $this->con->real_escape_string($_POST['passwrd']);
-        $query = "SELECT * FROM admins WHERE Email= '$Email' AND Passwrd = '$Passwrd'";
+        $Passwrd = hash('sha256', $_POST['Passwrd']);
+        $query = "SELECT ID FROM admins WHERE Email = '$Email' AND Passwrd = '$Passwrd'";
         $result = $this->con->query($query);
         $records =  mysqli_num_rows($result);
         if ($records > 0) {
-            echo '<p> Logged In</p>';
-            ?>
-            <a href="./view.php">Click Here</a>
-            <?php
-        } else {
 
-            echo '<p> Invalid Login</p>';
+            foreach($result as $row){
+             session_start();
+             $_SESSION['ID'] = $row['ID'];
+              Header('Location:view.php');
+             }
+            }else {
+            echo'<p>Some error occur while logging in</p>';
+            }
         }
-    }
 
-    //This will fetch all the data from From Sql  (or READ)
+
+    //This will fetch all the data from Sql  (or READ)
     public function displayData()
     {
         $query = "SELECT * FROM admins";
@@ -93,7 +92,7 @@ class database
     // update and read
     public function displayRecordByID($ID){
 
-        $query = "SELECT * FROM admins WHERE ID = '$ID' ";
+        $query = "SELECT * FROM admins WHERE ID = '$ID'";
         $result = $this->con->query($query);
         if($result->num_rows > 0){
             $row = $result->fetch_assoc();
@@ -108,12 +107,12 @@ class database
         $FirstName = $this->con->real_escape_string($_POST['uFirstName']);
         $LastName  = $this->con->real_escape_string($_POST['uLastName']);
         $Email = $this->con->real_escape_string($_POST['uEmail']);
-        $Tel = $this->con->real_escape_string($_POST['uTelephone']);
+        $Telephone = $this->con->real_escape_string($_POST['uTelephone']);
         $Passwrd = hash('sha256',$_POST['Passwrd']);
-        $Confirmp = $this->con->real_escape_string($_POST['uConfirmp']);
         $ID = $this->con->real_escape_string($_POST['ID']);
+
         if (!empty($ID) && !empty($postData)) {
-            $query = "UPDATE admins SET FirstName = '$FirstName ', LastName = '$LastName ', Email = '$Email ',Telephone='$Tel', Passwrd = '$Passwrd ',Confirmp = '$Confirmp',  WHERE ID = '$ID'";
+            $query = "UPDATE admins SET FirstName = '$FirstName',LastName = '$LastName', Email = '$Email',Telephone='$Telephone', Passwrd = '$Passwrd' WHERE ID = '$ID'";
             $sql = $this->con->query($query);
             if($sql == true){
                 // to show message on header if successfully updated data that were inserted in the edit page
@@ -128,7 +127,7 @@ class database
     }
     //Creating Delete function
     public function deleteRecord($ID){
-        $query = "DELETE FROM admins WHERE ID = '$ID'";
+        $query = "DELETE  FROM admins WHERE ID = '$ID'";
         $sql = $this->con->query($query);
         if($sql == true){
             // to show message on header if successfully deleted data that was inserted
