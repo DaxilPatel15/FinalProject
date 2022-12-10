@@ -39,7 +39,7 @@ if(isset($_POST['Update'])){
         <h2 class="section-heading mb-5">
 
 
-            <span class="section-heading-lower">EDIT PROFILE</span>
+
         </h2>
         <form class="form1" action="update.php" method="POST">
 
@@ -47,36 +47,36 @@ if(isset($_POST['Update'])){
 
             <div class="form-floating">
                 <!-- adding input for FirstName -->
-                <input type="text" class="form-control" id="FirstName" name="uFirstName" value="<?php echo $customer['FirstName'] ?>" placeholder="Firstname">
+                <input type="text" class="form-control" id="FirstName" name="uFirstName" value="<?php echo $customer['FirstName'] ?>" >
                 <label for="FirstName">Firstname</label>
             </div>
             <div class="form-floating">
                 <!-- adding input for LastName -->
-                <input type="text" class="form-control" id="LastName" name="uLastName" value="<?php echo $customer['LastName'] ?>"  placeholder="Lastname">
+                <input type="text" class="form-control" id="LastName" name="uLastName" value="<?php echo $customer['LastName'] ?>"  >
                 <label for="LastName">Lastname</label>
             </div>
             <!-- adding input for Email -->
             <div class="form-floating">
-                <input type="text" class="form-control" id="Email" name="uEmail" value="<?php echo $customer['Email'] ?>"  placeholder="name@example.com">
+                <input type="text" class="form-control" id="Email" name="uEmail" value="<?php echo $customer['Email'] ?>" >
                 <label for="Email">Email</label>
             </div>
             <div class="form-floating">
                 <!-- adding input for Password -->
-                <input type="tel" class="form-control" id="telNumber" name="uTelephone" value="<?php echo $customer['Telephone'] ?>"  placeholder="TelePhone Nmber">
-                <label for="telNumber">Telephone Number</label>
+                <input type="tel" class="form-control" id="Telephone" name="uTelephone" value="<?php echo $customer['Telephone'] ?>"  >
+                <label for="Telephone">Telephone Number</label>
             </div>
             <div class="form-floating">
                 <!-- adding input for Password -->
-                <input type="password" class="form-control" id="Passwrd" name="uPasswrd" value="<?php echo $customer['Passwrd'] ?>"  placeholder="Password">
+                <input type="password" class="form-control" id="Passwrd" name="uPasswrd" value="<?php echo $customer['Passwrd'] ?>"  >
                 <label for="Passwrd">Password</label>
             </div>
             <div class="form-floating">
                 <!-- adding input for Password -->
-                <input type="password" class="form-control" id="Confirmp" name="uConfirmp" value="<?php echo $customer['Confirmp'] ?>"  placeholder="Password">
+                <input type="password" class="form-control" id="Confirmp" name="uConfirmp" value="<?php echo $customer['Passwrd']?>">
                 <label for="Confirmp">Confirm Password</label>
             </div>
             <input type="hidden" name="ID" value="<?php echo $customer['ID']; ?>">
-            <input class="w-100 btn btn-lg btn-primary" name="submit" value="UPDATE" type="submit">
+            <input class="w-100 btn btn-lg btn-primary" name="Update" value="Update" type="submit">
 
         </form>
 
