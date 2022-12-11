@@ -15,8 +15,11 @@
                 <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="about.php">About</a></li>
                 <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="join.php">REGISTRATION</a></li>
                 <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="view.php">View Details</a></li>
+                  <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="feedback.php">FeedBack</a></li>
             </ul>
         </div>
     </div>
 </nav>
 </header>
+<!--Name:Daxil Patel-->
+<!--Student ID:200520270-->
