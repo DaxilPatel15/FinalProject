@@ -1,3 +1,5 @@
+<!--Name:Daxil Patel-->
+<!--Student ID:200520270-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +27,7 @@ if (isset($_GET['msg1']) == "insert") {
 }
 ?>
 <section class = "row success-back-row" style="background-color: #F3F3F3">
-
+<!--its is a simple page to let user know that they are succefully register -->
    <div>
      <p>All done, Click the signin button to head towards sign in process</p>
      <a href="signin.php">Sign In</a>
@@ -35,3 +37,4 @@ if (isset($_GET['msg1']) == "insert") {
 <?php require 'footer.php'; ?>
 </body>>
 </html>
+<!--end of file-->
