@@ -1,11 +1,15 @@
+<!--Name:Daxil Patel-->
+<!--Student ID:200520270-->
+
 <?php
-// adding database file to make connection b/t 3 files
+// using session start to show the login page first to view the view page
 session_start();
 if(!isset($_SESSION['ID'])){
     header('Location:signin.php');
     exit();
 }
 else {
+//    including database
     require "database.php";
     $customerObj = new database();
 
@@ -18,15 +22,6 @@ else {
     }
 
 ?>
-
-
-
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,19 +51,20 @@ else {
 
     if (isset($_GET['msg2']) == "update") {
         echo "<div class='alert alert-success alert-dismissible'>
-              <button type='button' class='close' data-dismiss='alert'>×</button>
+              <button type='button' class='close' data-dismiss='alert'>X</button>
               Your Registration updated successfully
             </div>";
     }
     if (isset($_GET['msg3']) == "delete") {
         echo "<div class='alert alert-success alert-dismissible'>
-              <button type='button' class='close' data-dismiss='alert'>×</button>
+              <button type='button' class='close' data-dismiss='alert'>X</button>
               Record deleted successfully
             </div>";
     }
-    ?>
 
-    <table class="table table-dark table-hover">
+    ?>
+<!--using table to arrange the information properly-->
+    <table class="table">
         <thead>
         <tr>
 
@@ -89,6 +85,7 @@ else {
         $customers = $customerObj->displayData();
         foreach ($customers as $customer) {
         ?>
+<!--                using displaydata to display the entered data -->
         <tr>
 
             <td><?php echo $customer['FirstName']; ?></td>
@@ -120,4 +117,6 @@ else {
 </html>
 <?php
         }
+
 ?>
+<!--end of file-->
