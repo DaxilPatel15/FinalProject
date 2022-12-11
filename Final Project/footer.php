@@ -1,4 +1,5 @@
 <footer class="footer text-faded text-center py-5">
-    <div class="container"><p class="m-0 small">Copyright &copy; Cafe Coffee Day 2022</p></div>
+    <div class="container"><p class="m-0 small">Copyright &copy; Cafe Coffee Day 2022(Final Project)</p></div>
 </footer>
-
+<!--Name:Daxil Patel-->
+<!--Student ID:200520270-->
