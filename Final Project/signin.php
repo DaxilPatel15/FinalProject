@@ -1,4 +1,5 @@
-
+<!--Name:Daxil Patel-->
+<!--Student ID:200520270-->
 
 <?php
 
@@ -8,7 +9,7 @@ include 'database.php';
 $customerObj = new database();
 
 
-// Update Record in customer table
+// for login check whether the user as enter the correct data
 if (isset($_POST['login'])) {
     $customerObj->loginCheck($_POST);
     ?>
@@ -40,6 +41,7 @@ if (isset($_POST['login'])) {
     <link href="css/styles.css" rel="stylesheet" />
 </head>
 <body>
+<!--using global header-->
 <?php require ('header.php'); ?>
 <section class="page-section cta">
 
@@ -68,13 +70,7 @@ if (isset($_POST['login'])) {
 
             <input class="w-100 btn btn-lg btn-primary" name="login" value="login" type="submit">
 
-            <p class="address mb-5">
-                <em>
-                    <strong>If you aren`t register yet please click the below Link</strong>
-                    <br />
-                    Golden Valley, Minnesota
-                </em>
-            </p>
+
             <p class="mb-0">
                 <a href="join.php">Registration</a>
             </p>
@@ -90,7 +86,8 @@ if (isset($_POST['login'])) {
 <?php require ('./footer.php'); ?>
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Core theme JS-->
+
 <script src="js/scripts.js"></script>
 </body>
 </html>
+<!--end of file-->
