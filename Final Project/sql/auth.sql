@@ -10,7 +10,13 @@ CREATE table admins(
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
+CREATE table fb_admins(
+fb_ID int not null primary key auto_increment;
+fname varchar(100),
+rating int(10),
+comnet varchar(100)
 
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
