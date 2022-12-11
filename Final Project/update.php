@@ -1,4 +1,13 @@
+<!--Name:Daxil Patel-->
+<!--Student ID:200520270-->
+
 <?php
+session_start();
+if(!isset($_SESSION['ID'])){
+    header('Location:signin.php');
+    exit();
+}
+else{
 //adding the database file
 include "database.php";
 $customerObj = new database();
@@ -95,3 +104,6 @@ if(isset($_POST['Update'])){
 <script src="js/scripts.js"></script>
 </body>
 </html>
+<?php
+}
+?>
