@@ -1,4 +1,9 @@
+<!--Name:Daxil Patel-->
+<!--Student ID:200520270-->
+
+
 <!DOCTYPE html>
+<!--//usinf html for our home page-->
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -16,8 +21,10 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body>
+<!--   global header-->
       <?php require ('./header.php'); ?>
         <section class="page-section clearfix">
+<!--            adding content in section of body-->
             <div class="container">
                 <div class="intro">
                     <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="assets/img/intro.jpg" alt="..." />
@@ -47,6 +54,7 @@
                 </div>
             </div>
         </section>
+<!--adding global footer-->
       <?php require ('./footer.php'); ?>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -54,3 +62,4 @@
         <script src="js/scripts.js"></script>
     </body>
 </html>
+<!--end of file-->
